@@ -24,4 +24,3 @@ def load_config(config_file: Path = CONFIG_FILE_PATH) -> dict:
         error_message = f"یک خطای غیرمنتظره در هنگام بارگیری پیکربندی رخ داد: {e}"
         log.error(error_message)
         raise
-
