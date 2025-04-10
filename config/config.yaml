@@ -1,9 +1,9 @@
 Try:
-- Num:
-    NUM_TRIALS = 1000
-- Arms:
-    NUM_ARMS = 10
+  NUM_TRIALS: 1000
+
+Arms:
+  NUM_ARMS: 10
 
 Strategy:
-- epsilonGreedy:
-    EPSILON = 0.1
+  epsilonGreedy:
+    EPSILON: 0.1
