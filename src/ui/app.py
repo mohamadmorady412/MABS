@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-from mabs.factories.bandit_factory import BanditFactory
-from mabs.factories.strategy_factory import StrategyFactory
-from mabs.utils.auto_import import import_modules_from_folder
+from factories.bandit_factory import BanditFactory
+from factories.strategy_factory import StrategyFactory
+from utils.auto_import import import_modules_from_folder
 
 import_modules_from_folder("bandits", "bandits")
 import_modules_from_folder("strategies", "strategies")

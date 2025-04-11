@@ -1,0 +1,2 @@
+class NotImplementedInSystem(Exception):
+    pass
