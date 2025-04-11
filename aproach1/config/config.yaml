@@ -1,9 +1,0 @@
-Try:
-  NUM_TRIALS: 1000
-
-Arms:
-  NUM_ARMS: 10
-
-Strategy:
-  epsilonGreedy:
-    EPSILON: 0.1
