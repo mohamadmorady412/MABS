@@ -2,7 +2,7 @@ from factories.exeptions import NotImplementedInSystem
 
 from experiment import run_experiment, run_experiment_as_conf
 from logger import get_logger
-from utils.config_loader import load_config
+from utils.config_loader import load_config, load_components
 from utils.auto_import import import_modules_from_folder
 
 
@@ -24,9 +24,11 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
-    config = load_config()
+    config_a = load_config()
+    config_b = load_components("gaussian", "ucb", num_trials=3000)
     try:
         run_experiment(args.bandit, args.strategy, args.arms, args.trials)
-        run_experiment_as_conf(config)
+        run_experiment_as_conf(config_a)
+        run_experiment_as_conf(config_b)
     except NotImplementedInSystem as e:
         logger.error(f"[ERROR] {e}")
