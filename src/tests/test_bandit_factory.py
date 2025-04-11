@@ -1,14 +1,17 @@
-import pytest
 from factories.bandit_factory import BanditFactory
-from factories.exeptions import NotImplementedInSystem
+from bandits.base_bandit import BaseBandit
 
-def test_bandit_not_implemented():
-    fake_config = {
-        "type": "non_existent_bandit",
-        "params": {"num_arms": 5}
-    }
+@BanditFactory.register("dummy_bandit")
+class DummyBandit(BaseBandit):
+    def __init__(self, num_arms):
+        self.num_arms = num_arms
 
-    with pytest.raises(NotImplementedInSystem) as exc_info:
-        BanditFactory.create(fake_config)
+    def pull(self, arm):
+        return 1.0
 
-    assert "Bandit 'non_existent_bandit' is not implemented" in str(exc_info.value)
+def test_register_and_create_bandit():
+    config = {"type": "dummy_bandit", "params": {"num_arms": 5}}
+    bandit = BanditFactory.create(config)
+
+    assert isinstance(bandit, DummyBandit)
+    assert bandit.num_arms == 5

@@ -1,12 +1,14 @@
 from factories.exeptions import NotImplementedInSystem
 from strategies.base_strategy import BaseStrategy
-
 class StrategyFactory:
     _registry = {}
 
     @classmethod
-    def register(cls, key: str, strategy_cls: type):
-        cls._registry[key] = strategy_cls
+    def register(cls, key: str):
+        def decorator(strategy_cls):
+            cls._registry[key] = strategy_cls
+            return strategy_cls
+        return decorator
 
     @classmethod
     def create(cls, config: dict, **kwargs) -> BaseStrategy:

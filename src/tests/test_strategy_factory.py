@@ -1,13 +1,20 @@
-import pytest
 from factories.strategy_factory import StrategyFactory
-from factories.exeptions import NotImplementedInSystem
+from strategies.base_strategy import BaseStrategy
 
-def test_strategy_not_implemented():
-    fake_config = {
-        "type": "ghost_strategy"
-    }
+@StrategyFactory.register("dummy_strategy")
+class DummyStrategy(BaseStrategy):
+    def __init__(self, num_arms):
+        self.num_arms = num_arms
 
-    with pytest.raises(NotImplementedInSystem) as exc_info:
-        StrategyFactory.create(fake_config, num_arms=5)
+    def select_arm(self):
+        return 0
 
-    assert "Strategy 'ghost_strategy' is not implemented" in str(exc_info.value)
+    def update(self, arm, reward):
+        pass
+
+def test_register_and_create_strategy():
+    config = {"type": "dummy_strategy"}
+    strategy = StrategyFactory.create(config, num_arms=10)
+
+    assert isinstance(strategy, DummyStrategy)
+    assert strategy.num_arms == 10

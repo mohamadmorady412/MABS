@@ -1,12 +1,14 @@
 from factories.exeptions import NotImplementedInSystem
 from bandits.base_bandit import BaseBandit
-
 class BanditFactory:
     _registry = {}
 
     @classmethod
-    def register(cls, key: str, bandit_cls: type):
-        cls._registry[key] = bandit_cls
+    def register(cls, key: str):
+        def decorator(bandit_cls):
+            cls._registry[key] = bandit_cls
+            return bandit_cls
+        return decorator
 
     @classmethod
     def create(cls, config: dict) -> BaseBandit:
