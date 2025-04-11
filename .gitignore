@@ -1,2 +1,114 @@
-/venv
-/venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+# Usually these files are written by a python script from a template
+# and thus do not belong in version control
+# To supportস্থির deployments make sure the application always writes these files
+# into a directory managed by the OS such as /tmp
+# *.manifest
+# *.spec
+
+# created by py2app/py2exe
+build
+dist
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyproject
+.ropeproject
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Mac OS X
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Log files
+*.log
+
+# Coverage data files
+.coverage
+*.coverage
+*.lcov
+coverage.xml
+
+# Nox
+.nox/
+
+# MyPy cache
+.mypy_cache/
+
+# Ruff cache
+.ruff_cache/
+
+# Type stubs
+*.pyi
+
+# Poetry
+poetry.lock
+
+# PDM
+pdm.lock
+.pdm-python/
+
+# pyenv
+.python-version
+
+# dotenv
+.env*
+!.env.example
+
+# Other temporary files
+*.swp
+*.bak
+*.tmp
