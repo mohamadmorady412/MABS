@@ -1,0 +1,10 @@
+bandit:
+  type: "random"
+  params:
+    num_arms: 3
+
+strategy:
+  type: "greedy"
+
+experiment:
+  num_trials: 10

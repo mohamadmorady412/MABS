@@ -1,0 +1,10 @@
+bandit:
+  type: "normal"
+  params:
+    num_arms: 2
+
+strategy:
+  type: "thompson"
+
+experiment:
+  num_trials: 100

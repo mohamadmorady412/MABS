@@ -1,0 +1,10 @@
+bandit:
+  type: "gaussian"
+  params:
+    num_arms: 5
+
+strategy:
+  type: "ucb"
+
+experiment:
+  num_trials: 5000
