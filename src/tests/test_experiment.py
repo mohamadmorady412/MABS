@@ -26,3 +26,11 @@ class GreedyStrategy(BaseStrategy):
 def test_run_experiment_with_dummy_components():
     result = run_experiment("constant", "greedy", num_arms=5, num_trials=100)
     assert "Average Reward = 1.000" in result
+
+def test_run_experiment_with_logging(caplog):
+    from experiment import run_experiment
+
+    with caplog.at_level("INFO", logger="expriment"):
+        run_experiment("constant", "greedy", num_arms=5, num_trials=100)
+
+    assert "Average Reward = 1.000" in caplog.text
