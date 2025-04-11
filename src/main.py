@@ -20,4 +20,9 @@ def run_experiment(bandit_type, strategy_type, num_arms=10, num_trials=1000):
     print(f"{strategy_type} on {bandit_type}: Average Reward = {avg_reward:.3f}")
 
 if __name__ == '__main__':
-    run_experiment("gaussian", "epsilon_greedy")
+    bandit = str(input("please enter a bandit type: "))
+    strategy = str(input("please enter a strategy type: "))
+    try:
+        run_experiment(bandit, strategy)
+    except ValueError("the bandit or strategy not emplyment in this software"):
+        raise
