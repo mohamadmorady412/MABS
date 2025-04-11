@@ -1,0 +1,10 @@
+bandit:
+  type: "random"
+  params:
+    num_arms: 10
+
+strategy:
+  type: "ucb"
+
+experiment:
+  num_trials: 1000

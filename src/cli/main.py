@@ -1,7 +1,8 @@
 from factories.exeptions import NotImplementedInSystem
 
-from experiment import run_experiment
+from experiment import run_experiment, run_experiment_as_conf
 from logger import get_logger
+from utils.config_loader import load_config
 from utils.auto_import import import_modules_from_folder
 
 
@@ -23,7 +24,9 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
+    config = load_config()
     try:
         run_experiment(args.bandit, args.strategy, args.arms, args.trials)
+        run_experiment_as_conf(config)
     except NotImplementedInSystem as e:
         logger.error(f"[ERROR] {e}")
